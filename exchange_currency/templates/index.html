@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Currency Converter</h1>
+    <div class="container">
+        <form method="POST">
+            <input type="number" name="amount" placeholder="Amount" required step="any">
+            <select name="from_currency" required>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="INR">INR</option>
+                <option value="BDT">BDT</option>
+                <!-- Add more currencies as needed -->
+            </select>
+            <select name="to_currency" required>
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="INR">INR</option>
+                <option value="BDT">BDT</option>
+                <!-- Add more currencies as needed -->
+            </select>
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if message %}
+        <div class="result">
+            <p>{{ message }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

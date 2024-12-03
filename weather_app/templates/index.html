@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f0f8ff;
+        }
+        form {
+            margin: 20px auto;
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 1rem;
+        }
+        .weather-info {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #e6f7ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather App</h1>
+    <form action="/weather" method="post">
+        <input type="text" name="city" placeholder="Enter city name" required>
+        <button type="submit">Get Weather</button>
+    </form>
+    {% if weather %}
+    <div class="weather-info">
+        <h2>Weather in {{ weather['city'] }}</h2>
+        <p>Temperature: {{ weather['temp'] }}°C</p>
+        <p>Condition: {{ weather['condition'] }}</p>
+        <p>Humidity: {{ weather['humidity'] }}%</p>
+    </div>
+    {% endif %}
+</body>
+</html>
